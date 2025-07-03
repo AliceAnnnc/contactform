@@ -1,44 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Us a message</title>
   <style>
-    body { font-family: Arial; background: #f6f6f6; padding: 40px; text-align: center; }
-    form { background: white; padding: 20px; max-width: 400px; margin: auto; box-shadow: 0 0 10px #ccc; }
-    input, textarea { width: 100%; padding: 10px; margin: 8px 0; }
-    button { background: #007BFF; color: white; padding: 10px 20px; border: none; }
-  </style>
-</head>
-<body>
-  <h2>Contact Us</h2>
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-    <div id="responseMsg"></div>
-  </form>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 40px 20px;
+      color: #222;
+      display: flex;
+      justify-content: center;
+    }
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      fetch('https://formspree.io/f/YOUR-ID', { // Change to your backend endpoint
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('responseMsg').innerText = 'Message sent!';
-        form.reset();
-      })
-      .catch(err => {
-        document.getElementById('responseMsg').innerText = 'Error sending message.';
-      });
-    });
-  </script>
-</body>
-</html>
+    .contact-form {
+      max-width: 480px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-w
